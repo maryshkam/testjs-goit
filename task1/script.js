@@ -21,28 +21,22 @@ class StringBuilder {
   append (str) {
     const result = this.value + str;
     this.value = result;
-    return this.value;
+    return this;
   }
   prepend (str) {
     const result = str + this.value;
     this.value = result;
-    return this.value;
+    return this;
   }
   pad (str) {
     const result = str + this.value + str;
     this.value = result;
-    return this.value;
+    return this;
   }
 }
 
 const builder = new StringBuilder('.');
+builder.append('^').prepend('^').pad('=');
+
 console.log(builder.value);
 
-builder.append('^'); 
-console.log(builder.baseString()); // '.^'
-
-builder.prepend('^'); 
-console.log(builder.baseString()); // '^.^'
-
-builder.pad('='); 
-console.log(builder.baseString()); // '=^.^='
